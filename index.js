@@ -8,7 +8,7 @@ const PORT = 3000;
 
 var path = require("path");
 
-app.use(express.static(path.resolve("./public")));
+app.use(express.static(path.resolve("./tmp")));
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/index.html");
