@@ -26,7 +26,9 @@ app.post("/upload_file", async (req, res) => {
   try {
     const imageFile = data.files.image;
     const imagePath = imageFile.filepath;
-    const pathToWriteImage = `tmp/${imageFile.newFilename}-${imageFile.originalFilename}`;
+    const fileName = `${imageFile.newFilename}-${imageFile.originalFilename}`;
+
+    const pathToWriteImage = path.join(process.cwd(), "tmp", fileName);
 
     const image = await fs.promises.readFile(imagePath);
 
